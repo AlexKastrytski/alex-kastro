@@ -1,0 +1,37 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red28\green51\blue69;\red250\green250\blue251;}
+{\*\expandedcolortbl;;\cssrgb\c14118\c26275\c34118;\cssrgb\c98431\c98431\c98824;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww15520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs23\fsmilli11900 \cf2 \cb3 \expnd0\expndtw0\kerning0
+$ docker run -d \\\
+	--name demo-postgres \\\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3      -e POSTGRES_USER=capo \\\cf2 \cb3 \
+	-e POSTGRES_PASSWORD=123 \\	\
+     -p 6432:5432 \\\
+    \'97-mount \'91type=bind,source=/root/pgdata,target=/var/lib/postgresql/data\'92 \\\
+    -d \\\
+     postgres:14.5-alpine3.16\
+\
+\
+\cf2 \cb3 docker run \\\
+	--name demo-postgres \\\
+     -e POSTGRES_USER=capo \\\
+	-e POSTGRES_PASSWORD=my123 \\\
+	-e PGDATA=/var/lib/postgresql/data/pgdata \\\
+     -e POSTGRES_DB=demodb \\\
+     -p 6432:5432 \\\
+	-v /custom/mount:/home/ec2-user/pgdata \\\
+-d \\\
+postgres_latest\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \
+\
+\
+:14.5-alpine3.16}
